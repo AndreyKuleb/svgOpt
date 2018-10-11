@@ -100,8 +100,9 @@ var svgo = new SVGO({
 // console.log(data);  // выводим считанные данные
 
 var symbols = /[\r\n%#()<>?\[\\\]^`{|}]/g;
-var pathIn = "./svg";
+var pathIn = "../svg";
 var pathOut = "./svg-out"
+var bigResult = [];
 fs.readdir(pathIn, function(err, items) {
   //console.log(items);
   // fullNames.forEach(element  => {
@@ -114,6 +115,8 @@ fs.readdir(pathIn, function(err, items) {
   //     }
   //   })
   // });
+  let tableData = JSON.parse(fs.readFileSync('./bigData.json', {"encoding": "utf8", "flag":"r"}));
+  let promise = new Promise((resolve, reject) => {
   for (let i=1; i<items.length; i++) {
     let data = fs.readFileSync(pathIn + '/' + items[i], {"encoding": "utf8", "flag":"r"});
     let item = items[i];
@@ -131,13 +134,39 @@ fs.readdir(pathIn, function(err, items) {
             return true;
           }
         });
-        if (!curName) curName = item.substring(0,3)
-        else curName = curName.alias.toLowerCase()
-        let writeString = `  &--${curName}\n    background-image url("data:image/svg+xml,${result}")\n\n`;
+        let engName, rusName;
+        if (!curName) { 
+          engName = tableData.find(element => element.shortName == item.substring(0,3)).fullName;
+          rusName = tableData.find(element => element.shortName == item.substring(0,3)).rusName;
+          bigResult.push({
+            "shortName" : item.substring(0,3),
+            "rusName" : tableData.find(element => element.shortName == item.substring(0,3)).rusName.toLowerCase(),
+            "fullName" : engName,
+        });
+        } else  {
+          engName = curName.alias.toLowerCase();
+          rusName = curName.name;
+          bigResult.push({
+              "rusName" : curName.name,
+              "fullName" : curName.alias.toLowerCase(),
+              "shortName" : item.substring(0,3)
+          });
+        }
+        let writeString = `  &--${engName} /* ${rusName} */\n    background-image url("data:image/svg+xml,${result}")\n`;
         if (i !== 1) fs.writeFileSync("output.txt", writeString, {"flag" : "a"});
         else fs.writeFileSync("output.txt", writeString, {"flag" : "w"});
-      });
+      })
+      // .then(() => {
+      //   fs.writeFileSync("bigData.json", JSON.stringify(bigResult), {"flag" : "a"});
+      //   //console.dir(bigResult);
+      // }) 
   }
+  resolve("result");
+})
+// promise.then(() => {
+//     fs.writeFileSync("bigData.json", JSON.stringify(bigResult), {"flag" : "a"});
+//     //console.dir(bigResult);
+//   }) 
 });
 
 function encodeSVG( data ) {
