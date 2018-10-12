@@ -118,6 +118,7 @@ fs.readdir(pathIn, function(err, items) {
   let tableData = JSON.parse(fs.readFileSync('./bigData.json', {"encoding": "utf8", "flag":"r"}));
   let promise = new Promise((resolve, reject) => {
   for (let i=1; i<items.length; i++) {
+    if (items[i].length == 7) {
     let data = fs.readFileSync(pathIn + '/' + items[i], {"encoding": "utf8", "flag":"r"});
     let item = items[i];
     svgo.optimize(data)
@@ -135,23 +136,26 @@ fs.readdir(pathIn, function(err, items) {
           }
         });
         let engName, rusName;
-        if (!curName) { 
-          engName = tableData.find(element => element.shortName == item.substring(0,3)).fullName;
+        //if (!curName) { 
+          console.log(item);
+          if (tableData.find(element => element.shortName == item.substring(0,3))) {
+          engName = tableData.find(element => element.shortName == item.substring(0,3)).fullName.toLowerCase();
           rusName = tableData.find(element => element.shortName == item.substring(0,3)).rusName;
           bigResult.push({
             "shortName" : item.substring(0,3),
-            "rusName" : tableData.find(element => element.shortName == item.substring(0,3)).rusName.toLowerCase(),
+            "rusName" : tableData.find(element => element.shortName == item.substring(0,3)).rusName,
             "fullName" : engName,
         });
-        } else  {
-          engName = curName.alias.toLowerCase();
-          rusName = curName.name;
-          bigResult.push({
-              "rusName" : curName.name,
-              "fullName" : curName.alias.toLowerCase(),
-              "shortName" : item.substring(0,3)
-          });
-        }
+      }
+        // } else  {
+          // engName = curName.alias.toLowerCase();
+          // rusName = curName.name;
+          // bigResult.push({
+          //     "rusName" : curName.name,
+          //     "fullName" : curName.alias.toLowerCase(),
+          //     "shortName" : item.substring(0,3)
+          // });
+        //}
         let writeString = `  &--${engName} /* ${rusName} */\n    background-image url("data:image/svg+xml,${result}")\n`;
         if (i !== 1) fs.writeFileSync("output.txt", writeString, {"flag" : "a"});
         else fs.writeFileSync("output.txt", writeString, {"flag" : "w"});
@@ -160,7 +164,7 @@ fs.readdir(pathIn, function(err, items) {
       //   fs.writeFileSync("bigData.json", JSON.stringify(bigResult), {"flag" : "a"});
       //   //console.dir(bigResult);
       // }) 
-  }
+  }}
   resolve("result");
 })
 // promise.then(() => {

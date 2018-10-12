@@ -155,8 +155,8 @@
     "fullName": "GreatBritain"
   },
   {
-    "rusName": "Алжир",
-    "fullName": "algeria",
+    "rusName": "Эритрея",
+    "fullName": "Eritreya",
     "shortName": "eri"
   },
   {
@@ -195,13 +195,13 @@
     "shortName": "geo"
   },
   {
-    "rusName": "Алжир",
-    "fullName": "algeria",
+    "rusName": "Германия",
+    "fullName": "Germany",
     "shortName": "ger"
   },
   {
-    "rusName": "Соединённое Королевство",
-    "fullName": "greatbritain",
+    "rusName": "Греция",
+    "fullName": "Greece",
     "shortName": "gre"
   },
   {
@@ -215,8 +215,8 @@
     "shortName": "hun"
   },
   {
-    "rusName": "Аргентина",
-    "fullName": "argentina",
+    "rusName": "Индонезия",
+    "fullName": "Indonesia",
     "shortName": "ina"
   },
   {
@@ -225,8 +225,8 @@
     "shortName": "ind"
   },
   {
-    "rusName": "Кирибати",
-    "fullName": "kiribati",
+    "rusName": "Иран",
+    "fullName": "Iran",
     "shortName": "iri"
   },
   {
@@ -235,8 +235,8 @@
     "fullName": "Ireland"
   },
   {
-    "rusName": "Коморские острова",
-    "fullName": "comoroislands",
+    "rusName": "Исландия",
+    "fullName": "Iceland",
     "shortName": "isl"
   },
   {
@@ -245,8 +245,8 @@
     "shortName": "isr"
   },
   {
-    "rusName": "Британская Территория В Индийском Океане",
-    "fullName": "britanskaya-territoriya-v-indiyskom-okeane",
+    "rusName": "Италия",
+    "fullName": "italy",
     "shortName": "ita"
   },
   {
@@ -275,8 +275,8 @@
     "fullName": "Kirgizstan"
   },
   {
-    "rusName": "Соединенное Королевство",
-    "fullName": "soedinennoe-korolevstvo",
+    "rusName": "Корея, Народно-Демократическая Республика",
+    "fullName": "kndr",
     "shortName": "kor"
   },
   {
@@ -310,13 +310,13 @@
     "shortName": "mad"
   },
   {
-    "rusName": "Дания",
-    "fullName": "denmark",
+    "rusName": "Марокко",
+    "fullName": "Morocco",
     "shortName": "mar"
   },
   {
-    "rusName": "Багамские острова",
-    "fullName": "bahamas",
+    "rusName": "Малайзия",
+    "fullName": "Malaysia",
     "shortName": "mas"
   },
   {
@@ -336,12 +336,12 @@
   },
   {
     "shortName": "mli",
-    "rusName": "",
-    "fullName": ""
+    "rusName": "Мали",
+    "fullName": "Malta"
   },
   {
     "shortName": "mlt",
-    "rusName": "Мали",
+    "rusName": "Мальта",
     "fullName": "Mali"
   },
   {
@@ -410,8 +410,8 @@
     "shortName": "phi"
   },
   {
-    "rusName": "Французская Полинезия",
-    "fullName": "french-polynesia",
+    "rusName": "Польша",
+    "fullName": "Poland",
     "shortName": "pol"
   },
   {
@@ -430,8 +430,8 @@
     "shortName": "rsa"
   },
   {
-    "rusName": "Беларусь",
-    "fullName": "belorussia",
+    "rusName": "Российская Федерация",
+    "fullName": "russia",
     "shortName": "rus"
   },
   {
@@ -485,8 +485,8 @@
     "shortName": "syr"
   },
   {
-    "rusName": "Афганистан",
-    "fullName": "afghanistan",
+    "rusName": "Танзания",
+    "fullName": "Танзания, Объединенная Республика",
     "shortName": "tan"
   },
   {
@@ -510,8 +510,8 @@
     "fullName": "OAE"
   },
   {
-    "rusName": "Португалия",
-    "fullName": "portugal",
+    "rusName": "Уганда",
+    "fullName": "Uganda",
     "shortName": "uga"
   },
   {
@@ -520,9 +520,9 @@
     "shortName": "ukr"
   },
   {
-    "rusName": "Бурунди",
+    "rusName": "Уругвай",
     "fullName": "burundi",
-    "shortName": "uru"
+    "shortName": "Uruguay"
   },
   {
     "rusName": "Соединенные Штаты",
@@ -535,8 +535,8 @@
     "shortName": "vat"
   },
   {
-    "rusName": "Словения",
-    "fullName": "slovenia",
+    "rusName": "Венесуэлла",
+    "fullName": "Venezuela",
     "shortName": "ven"
   },
   {
